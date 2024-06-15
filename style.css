@@ -32,16 +32,19 @@
         color: #b041b0;
         background-color: antiquewhite;
     }
-    #reset{
-        padding: 1rem;
-        font-size: 1.5rem;
-        width: 20vh;
-        text-align: center;
-        background-color: #c6d2d2;
-        height: 7vh;
-        border-radius: 7rem;
-        border: none;
-    }
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#reset{
+    font-size: 1.5rem;
+    width: 20vh;
+    background-color: #c6d2d2;
+    height: 7vh;
+    border-radius: 7rem;
+    border: none;
+}
     #msg{
         color: white;
         font-size: 2.5rem;
