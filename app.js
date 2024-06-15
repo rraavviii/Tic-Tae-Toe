@@ -14,27 +14,31 @@ const winpaterns=[
     [3,4,5],
     [6,7,8],
 ];
+let count=0;
 
 const resetgame=()=>{
     turn0=true;
     enableboxes();
+    count=0;
     msgcontainer.classList.add("hide");
 };
 
 const draw=()=>{
     msgcontainer.classList.remove("hide");
     msg.innerText="Match Draw";
+  
 }
 
 
 
-let count=0;
+
 
 boxes.forEach((box)=>{
     box.addEventListener("click", ()=>{
         // console.log("clicked")
         if(turn0){
         box.innerText="0"
+        box.style.backgroundColor = "green";
         turn0=false;
         count++;
 
@@ -42,7 +46,7 @@ boxes.forEach((box)=>{
         else{
             
             box.innerText="X";
-            box.style.color="red";
+            box.style.backgroundColor = "red";
             turn0=true;
             count++;
         }
@@ -50,9 +54,11 @@ boxes.forEach((box)=>{
         if(count===9){
             draw();
         }
-        box.disabled=true;
-
-        checkwinner();
+        else{
+            box.disabled=true;
+            
+            checkwinner();
+        }
     });
 });
 
@@ -60,6 +66,7 @@ const enableboxes=()=>{
     for(let box of boxes){
         box.disabled=false;
         box.innerText="";
+        box.style.removeProperty("background-color");
     }
 }
 
@@ -94,5 +101,7 @@ for(pattern of winpaterns){
 newgamebtn.addEventListener("click",resetgame);
 resetbtn.addEventListener("click",resetgame);
 
+
+ 
 
  
