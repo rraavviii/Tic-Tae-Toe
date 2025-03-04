@@ -9,7 +9,18 @@ let playbtn=document.querySelector("#play");
 let pl1=document.createElement("h2");
 let pl2=document.createElement("h2");
 const playerInputs = document.querySelector(".player-inputs");
+let s=false;
+
+boxes.forEach((box) => {
+    box.disabled = true;
+
+});
 playbtn.addEventListener("click",()=>{
+
+    if (p1.value.trim() === "" || p2.value.trim() === "") {
+        alert("Please enter both player names.");
+        return;
+    }
    
     pl1.innerText=`${p1.value} vs `;
     pl2.innerText=`${p2.value}`;
@@ -23,7 +34,9 @@ playbtn.addEventListener("click",()=>{
 
     playerInputs.style.display = "none";
     
-    console.log(p1.value,p2.value);
+    boxes.forEach((box) => {
+        box.disabled = false;
+    });
 })
 
 
@@ -62,6 +75,7 @@ const draw=()=>{
 boxes.forEach((box)=>{
     box.addEventListener("click", ()=>{
         // console.log("clicked")
+      
         pl1.style.backgroundColor="red";
             pl2.style.backgroundColor="green";
         if(turn0){
